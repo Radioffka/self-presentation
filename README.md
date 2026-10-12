@@ -1,4 +1,4 @@
-# Self Prezentace
+# Self Presentation
 
 A one-page, zero-dependency site documenting a private home AI stack:
 
