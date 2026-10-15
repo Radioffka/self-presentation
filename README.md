@@ -6,8 +6,8 @@ A one-page, zero-dependency site documenting a private home AI stack:
   serving stack (recipe V5) with `qwen3.8-flash-next`, 128 GB unified memory
 - **NVIDIA Jetson Orin Nano** — always-on agent host running Hermes Agent
   (sessions, memory, tools, cron) — the single stateful box
-- **WireGuard (`wg-orin`)** — the inference API never leaves the LAN
-- **Many doors, one brain** — an interactive animated pipeline diagram shows
+- **WireGuard (`wg-orin`)**: the inference API never leaves the LAN
+- **Many doors, one brain**: an interactive animated pipeline diagram shows
   a message traveling from Telegram (phone), a desktop app over an SSH tunnel,
   or a plain SSH terminal to the same agent and the same session store
 

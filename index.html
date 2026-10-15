@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Self Presentation — Home AI Stack</title>
-<meta name="description" content="A privately-owned home AI stack: NVIDIA DGX Spark inference server, Jetson Orin Nano agent host, reachable from Telegram, a desktop app over SSH, or any terminal — documented with real measured numbers.">
+<title>Self Presentation · Home AI Stack</title>
+<meta name="description" content="A privately-owned home AI stack: NVIDIA DGX Spark inference server, Jetson Orin Nano agent host, reachable from Telegram, a desktop app over SSH, or any terminal, documented with real measured numbers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -139,7 +139,7 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
   <div class="wrap">
     <span class="kicker">$ whoami → an owned, private, local-first AI stack</span>
     <h1>One brain. Many doors.<br><span class="g">No cloud.</span></h1>
-    <p class="lead">A home AI stack built on NVIDIA silicon: a DGX Spark Grace&nbsp;Blackwell inference server running a custom serving stack (recipe&nbsp;V5) with <b>qwen3.8-flash-next</b>, and a Jetson&nbsp;Orin&nbsp;Nano agent host running Hermes — reachable from a phone over Telegram, from a desktop app over an SSH tunnel, or from any terminal. The brain never moves; the keyboard can be anywhere. Everything below is measured on the live machines.</p>
+    <p class="lead">A home AI stack built on NVIDIA silicon: a DGX Spark Grace&nbsp;Blackwell inference server running a custom serving stack (recipe&nbsp;V5) with <b>qwen3.8-flash-next</b>, and a Jetson&nbsp;Orin&nbsp;Nano agent host running Hermes: reachable from a phone over Telegram, from a desktop app over an SSH tunnel, or from any terminal. The brain never moves; the keyboard can be anywhere. Everything below is measured on the live machines.</p>
     <a class="btn" href="#pipeline">Watch a message travel →</a>
   </div>
 </header>
@@ -147,16 +147,17 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
 <section id="pipeline">
   <div class="wrap">
     <div class="label">Live pipeline</div>
-    <h2>Send a message — watch where it goes</h2>
+    <h2>Send a message, watch where it goes</h2>
     <p class="lead">Pick the door you want to type from, then press <b>Run a turn</b>. Timings shown are real measured values from this stack. Click any box in the diagram to inspect it.</p>
 
     <div class="topo-shell">
       <div class="topo-toolbar">
-        <span class="seg-label">Input door</span>
+        <span class="seg-label">Doors</span>
         <div class="seg" id="routeSeg" role="group" aria-label="Input surface">
           <button data-route="telegram" aria-pressed="true">Telegram · phone</button>
           <button data-route="desktop" aria-pressed="false">Desktop app · SSH</button>
           <button data-route="ssh" aria-pressed="false">Terminal · SSH</button>
+          <button data-route="all" aria-pressed="false">All at once</button>
         </div>
         <div class="spacer"></div>
         <span class="seg-label">Context cache</span>
@@ -236,11 +237,12 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
           <!-- node role captions -->
           <text x="100" y="240" fill="#757575" font-size="10" text-anchor="middle">human surface</text>
           <text x="380" y="112" fill="#757575" font-size="10" text-anchor="middle">transport</text>
-          <text x="670" y="352" fill="#757575" font-size="10" text-anchor="middle">agent runtime — the one place state lives</text>
+          <text x="670" y="352" fill="#757575" font-size="10" text-anchor="middle">agent runtime · the one place state lives</text>
           <text x="880" y="316" fill="#757575" font-size="10" text-anchor="middle">stateless inference</text>
 
           <!-- packet -->
           <circle id="packet" r="7" fill="#bff230" filter="url(#glow)" cx="100" cy="63"/>
+          <circle id="packetP2" r="7" fill="#9fd420" filter="url(#glow)" cx="100" cy="183" style="opacity:0"/>
         </svg>
         <svg id="topo-m" viewBox="0 0 340 575" role="img" aria-label="Architecture diagram, mobile layout">
           <defs><marker id="arrM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#76b900"/></marker></defs>
@@ -320,7 +322,7 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
       </div>
       <div class="card">
         <h3>NVIDIA Jetson Orin Nano</h3>
-        <p>The body. A palm-sized agent host that runs Hermes — sessions, tools, memory, skills, and every incoming connection — sipping 7–25&nbsp;W 24/7 (measured idle: 6.9&nbsp;W). It never loads a model; it just thinks it can.</p>
+        <p>The body. A palm-sized agent host that runs Hermes (sessions, tools, memory, skills, and every incoming connection), sipping 7–25&nbsp;W 24/7 (measured idle: 6.9&nbsp;W). It never loads a model; it just thinks it can.</p>
         <ul class="spec">
           <li><span class="k">CPU</span><span class="v">6-core Arm Cortex-A78AE</span></li>
           <li><span class="k">GPU</span><span class="v">1024 CUDA + 32 Tensor cores</span></li>
@@ -339,7 +341,7 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
   <div class="wrap">
     <div class="label">Connections</div>
     <h2>Many doors, one brain</h2>
-    <p class="lead">Every door is a thin client. They all land on the same session store, the same memory, the same tools — so a conversation started on the phone at the grocery store resumes on the desktop at home, mid-sentence. Shut any door while work is running: the job finishes on the Orin and is done when you reopen.</p>
+    <p class="lead">Every door is a thin client. They all land on the same session store, the same memory, the same tools, so a conversation started on the phone at the grocery store resumes on the desktop at home, mid-sentence. Shut any door while work is running: the job finishes on the Orin and is done when you reopen.</p>
     <table>
       <thead><tr><th>Door</th><th>Path</th><th>What it's for</th></tr></thead>
       <tbody>
@@ -351,12 +353,12 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
         <tr>
           <td><b>Desktop app</b> <span class="unit">(any OS)</span></td>
           <td>SSH connection → tunnel → loopback-only <span class="unit" style="font-family:var(--mono)">hermes serve</span></td>
-          <td>full work surface: streaming tool timelines, session list, files — zero cloud, the app authenticates with an SSH key and starts the backend on demand.</td>
+          <td>full work surface: streaming tool timelines, session list, files, zero cloud, the app authenticates with an SSH key and starts the backend on demand.</td>
         </tr>
         <tr>
           <td><b>Terminal</b> <span class="unit">(ssh)</span></td>
           <td>ssh → <span class="unit" style="font-family:var(--mono)">hermes --tui</span> / <span class="unit" style="font-family:var(--mono)">--resume</span></td>
-          <td>power-user path from any machine in seconds — no install at all.</td>
+          <td>power-user path from any machine in seconds, no install at all.</td>
         </tr>
         <tr>
           <td><b>No hands</b></td>
@@ -375,7 +377,7 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
   <div class="wrap">
     <div class="label">Performance · measured on live boxes, October 2026</div>
     <h2>The numbers, taken from the machines themselves</h2>
-    <p class="lead" style="color:#444">End-to-end latency audit run from the Orin against the Spark's production endpoint, plus idle telemetry from tegrastats. The headline: prefix caching turns a 24k-token cold prefill into a warm-cache round trip — a 33× difference.</p>
+    <p class="lead" style="color:#444">End-to-end latency audit run from the Orin against the Spark's production endpoint, plus idle telemetry from tegrastats. The headline: prefix caching turns a 24k-token cold prefill into a warm-cache round trip: a 33× difference.</p>
     <table>
       <thead><tr><th>Metric</th><th>Value</th><th>Read</th></tr></thead>
       <tbody>
@@ -383,7 +385,7 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
         <tr><td>TCP connect / HTTP round-trip</td><td class="num">4 / 8 <span class="unit">ms</span></td><td>serving layer is not the bottleneck</td></tr>
         <tr><td>Time to first token (short prompt)</td><td class="num">0.16–0.19 <span class="unit">s</span></td><td>feels instant in chat</td></tr>
         <tr><td>Prefill ~24k tokens · cold cache</td><td class="num">6.6 <span class="unit">s</span></td><td>worst case after eviction</td></tr>
-        <tr><td>Prefill ~24k tokens · warm cache</td><td class="num">0.20 <span class="unit">s</span></td><td><span class="pill">33× faster — prefix caching works</span></td></tr>
+        <tr><td>Prefill ~24k tokens · warm cache</td><td class="num">0.20 <span class="unit">s</span></td><td><span class="pill">33× faster: prefix caching works</span></td></tr>
         <tr><td>Packet loss over sample window</td><td class="num">0<span class="unit">%</span></td><td>gigabit + WireGuard, stable</td></tr>
         <tr><td>Orin idle draw / temps</td><td class="num">6.9 <span class="unit">W · 49 °C</span></td><td>24/7 host, cheaper than a light bulb</td></tr>
       </tbody>
@@ -400,21 +402,21 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
       <tbody>
         <tr><td>Serving</td><td><b>Custom stack, recipe V5</b></td><td>OpenAI-compatible API, FP4/quantized weights, prefix KV caching</td></tr>
         <tr><td>Model</td><td><b>qwen3.8-flash-next</b></td><td>fast multilingual reasoning, fully resident in 128 GB unified memory</td></tr>
-        <tr><td>Agent</td><td><b>Hermes Agent</b></td><td>tool use, persistent memory & skills, sessions, cron — on the Orin</td></tr>
+        <tr><td>Agent</td><td><b>Hermes Agent</b></td><td>tool use, persistent memory & skills, sessions, cron, all on the Orin</td></tr>
         <tr><td>Transport</td><td><b>Multi-surface gateway</b></td><td>Telegram bot service (systemd, linger, allowlist) + SSH-gatewayed desktop backend bound to loopback only</td></tr>
         <tr><td>Private net</td><td><b>WireGuard (wg-orin)</b></td><td>inference endpoint never exposed beyond the LAN</td></tr>
         <tr><td>Automation</td><td><b>cron · background jobs</b></td><td>scheduled briefings and long runs that don't care whether a client is connected</td></tr>
       </tbody>
     </table>
     <ul class="stack">
-      <li><span class="n">Design principles</span><span class="d">State and agency live on the cheap box, weights live on the big one. Clients are disposable — phones die, laptops get shut, apps get uninstalled — the brain doesn't. Either server can be swapped, upgraded, or rebooted without touching the other. Secrets stay in the agent's own vaults; the model never leaves home.</span></li>
+      <li><span class="n">Design principles</span><span class="d">State and agency live on the cheap box, weights live on the big one. Clients are disposable: phones die, laptops get shut, apps get uninstalled; the brain doesn't. Either server can be swapped, upgraded, or rebooted without touching the other. Secrets stay in the agent's own vaults; the model never leaves home.</span></li>
     </ul>
   </div>
 </section>
 
 <footer>
   <div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-    <span>Self Presentation — documentation of a private home AI stack · October 2026</span>
+    <span>Self Presentation · documentation of a private home AI stack · October 2026</span>
     <a href="https://github.com/Radioffka">github.com/Radioffka</a>
   </div>
 </footer>
@@ -425,11 +427,11 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var DETAIL={
-    phone:['Phone — Telegram door','Zero-install reachability. The gateway polls the bot API; only Martin\'s user ID is allowlisted. Voice notes are transcribed locally, files up to 2 GB flow both ways.'],
-    laptop:['PC / any laptop — thin client','Nothing to install beyond the desktop app (or just an ssh binary). Authenticates with an SSH key, opens a tunnel, and starts a loopback-only backend on the Orin. The machine is disposable: the session lives on the server.'],
+    phone:['Phone · Telegram door','Zero-install reachability. The gateway polls the bot API; only Martin\'s user ID is allowlisted. Voice notes are transcribed locally, files up to 2 GB flow both ways.'],
+    laptop:['PC / any laptop · thin client','Nothing to install beyond the desktop app (or just an ssh binary). Authenticates with an SSH key, opens a tunnel, and starts a loopback-only backend on the Orin. The machine is disposable: the session lives on the server.'],
     tg:['Telegram cloud','The one third-party hop, and it only carries chat transport. It can see messages in flight to your own agent but stores no state of the stack; the agent, memory and files are never on Telegram\'s servers.'],
-    orin:['Jetson Orin Nano — the agent runtime','The only stateful box. Hermes runs here: sessions, persistent memory, skills, tools (files, terminal, browser), cron. Agent processes are detached from client connections — closing a client never kills the work.'],
-    spark:['DGX Spark — stateless inference','Serves qwen3.8-flash-next behind an OpenAI-compatible API on 128 GB unified memory. Stateless: it holds weights and a KV cache, no user data. Only reachable through the WireGuard tunnel.']
+    orin:['Jetson Orin Nano · the agent runtime','The only stateful box. Hermes runs here: sessions, persistent memory, skills, tools (files, terminal, browser), cron. Agent processes are detached from client connections, so closing a client never kills the work.'],
+    spark:['DGX Spark · stateless inference','Serves qwen3.8-flash-next behind an OpenAI-compatible API on 128 GB unified memory. Stateless: it holds weights and a KV cache, no user data. Only reachable through the WireGuard tunnel.']
   };
 
   var HOLD={p:'M670 210 L670 210',m:'M170 306 L170 306',hold:{chips:['chip-gateway','chip-memory']}};
@@ -469,7 +471,7 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
 
   var route='telegram', cache='warm', running=false;
   var M760=window.matchMedia('(max-width:760px)');
-  var packetD=$('#packet'), packetM=$('#packetM'), packet=packetD, log=$('#log');
+  var packetD=$('#packet'), packetP2=$('#packetP2'), packetM=$('#packetM'), packet=packetD, log=$('#log');
 
   function setSeg(seg,attr,val){
     document.querySelectorAll('#'+seg+' button').forEach(function(b){
@@ -503,23 +505,24 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
     while(log.children.length>9) log.removeChild(log.firstChild);
   }
 
-  function moveTo(d,ms){return new Promise(function(res){
+  function moveTo(d,ms,el){return new Promise(function(res){
+    var P=el||packet;
     var path=document.createElementNS('http://www.w3.org/2000/svg','path');
     path.setAttribute('d',d);
     var len=path.getTotalLength();
     var done=false,t0=performance.now();
-    packet.style.opacity=1;
+    P.style.opacity=1;
     function finish(){
       if(done) return; done=true;
       var pt=path.getPointAtLength(len);
-      packet.setAttribute('cx',pt.x); packet.setAttribute('cy',pt.y);
+      P.setAttribute('cx',pt.x); P.setAttribute('cy',pt.y);
       res();
     }
     function step(now){
       if(done) return;
       var p=Math.min(1,(now-t0)/ms);
       var pt=path.getPointAtLength(len*p);
-      packet.setAttribute('cx',pt.x); packet.setAttribute('cy',pt.y);
+      P.setAttribute('cx',pt.x); P.setAttribute('cy',pt.y);
       if(p<1) requestAnimationFrame(step); else finish();
     }
     if(!reduce) requestAnimationFrame(step);
@@ -538,17 +541,18 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
     });
   }
   function applyRoute(){
-    var tg=route==='telegram';
+    var tg=(route==='telegram'||route==='all');
+    var direct=(route!=='telegram');
     var show=function(id,v){var el=document.getElementById(id);if(el)el.style.display=v?'':'none';};
-    show('n-relayM',tg); show('mE1',tg); show('mE2',tg); show('mE3',!tg); show('mDirectL',!tg);
+    show('n-relayM',tg); show('mE1',tg); show('mE2',tg); show('mE3',direct); show('mDirectL',direct);
     var en=document.getElementById('n-entryM'),
         T=document.getElementById('mEntryT'), S=document.getElementById('mEntryS');
-    if(en){en.dataset.key=tg?'phone':'laptop';
-      if(T)T.textContent=tg?'Phone':(route==='desktop'?'PC / laptop':'Any laptop');
-      if(S)S.textContent=tg?'Telegram app':(route==='desktop'?'Hermes desktop app':'ssh → hermes --tui');}
+    if(en){en.dataset.key=(route==='phone'||route==='telegram')?'phone':'laptop';
+      if(T)T.textContent=route==='telegram'?'Phone':(route==='all'?'All doors':(route==='desktop'?'PC / laptop':'Any laptop'));
+      if(S)S.textContent=route==='all'?'phone + laptop, same second':(route==='telegram'?'Telegram app':(route==='desktop'?'Hermes desktop app':'ssh → hermes --tui'));}
   }
 
-  var REPLY='Hi, Martin. I read your message through the SSH/Telegram path, recalled our context on the Orin, and asked the Spark for the next 200 tokens. Same brain as always — different door.';
+  var REPLY='Hi, Martin. I read your message through the SSH/Telegram path, recalled our context on the Orin, and asked the Spark for the next 200 tokens. Same brain as always, different door.';
 
   async function run(){
     if(running) return; running=true;
@@ -557,6 +561,7 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
     $('#bubbleText').innerHTML='';
     var mob=M760.matches;
     packet=mob?packetM:packetD;
+    if(route==='all'){await runAll(mob); return;}
     var r=ROUTES[route], i;
     for(i=0;i<r.req.length;i++){
       var s=r.req[i];
@@ -586,6 +591,59 @@ svg#topo{width:100%;min-width:720px;height:auto;display:block}
         clearInterval(iv);
         logLine('✓ reply delivered');
         packet.style.opacity=0;
+        packetP2.style.opacity=0;
+        $('#runBtn').textContent='▶ Run a turn';
+        running=false;
+      }
+    },reduce?60:40);
+  }
+  async function runAll(mob){
+    logLine('→ phone + laptop type in the SAME second');
+    if(!mob){
+      packetP2.style.opacity=1;
+      await Promise.all([
+        moveTo('M100 63 L100 63',250,packet)
+          .then(function(){return moveTo('M176 63 L300 63',600,packet);})
+          .then(function(){return moveTo('M460 63 L516 63 L516 140 L570 140',400,packet);}),
+        moveTo('M100 183 L100 183',250,packetP2)
+          .then(function(){return moveTo('M176 183 L406 183 L406 210 L570 210',500,packetP2);})
+      ]);
+      logLine('→ Telegram and SSH paths converge on the Orin');
+    } else {
+      await moveTo('M170 44 L170 196',reduce?1:400,packetM);
+      logLine('→ every door, same session store');
+    }
+    flashChips(['chip-gateway','chip-memory']);
+    logLine('→ concurrent turns serialize into ONE brain · <b>0.02 s</b>');
+    await wait(reduce?1:700);
+    var cold=cache==='cold';
+    if(!mob) await Promise.all([moveTo('M790 210 L820 210',250,packet),moveTo('M790 214 L820 214',250,packetP2)]);
+    else await moveTo('M170 428 L170 452',250,packetM);
+    logLine('→ WireGuard → Spark · <b>3.9 ms</b> (one shared pipe)');
+    logLine('→ prefill 24k tokens · <b>'+(cold?'6.6 s (cold)':'0.20 s (warm)')+'</b>');
+    await wait(reduce?1:(cold?1600:400));
+    logLine('← first token · <b>'+(cold?'6.8':'0.17')+' s</b> · one answer, every door sees it');
+    if(!mob){
+      await Promise.all([
+        moveTo('M820 210 L790 210',200,packet)
+          .then(function(){return moveTo('M670 140 L516 140',200,packet);})
+          .then(function(){return moveTo('M516 63 L300 63 L176 63 L100 63',350,packet);}),
+        moveTo('M820 214 L570 214',250,packetP2)
+          .then(function(){return moveTo('M570 214 L406 214 L406 183 L100 183',350,packetP2);})
+      ]);
+    } else {
+      await moveTo('M170 452 L170 196',reduce?1:250,packetM);
+      await moveTo('M170 196 L170 48',reduce?1:350,packetM);
+    }
+    var bt=$('#bubbleText'), txt=REPLY, dur=reduce?200:1600, t1=Date.now();
+    logLine('← streaming reply to BOTH doors');
+    var iv=setInterval(function(){
+      var p=Math.min(1,(Date.now()-t1)/dur);
+      bt.textContent=txt.slice(0,Math.round(txt.length*p))+(p<1?'▌':'');
+      if(p>=1){
+        clearInterval(iv);
+        logLine('✓ delivered to every connected door');
+        packet.style.opacity=0; packetP2.style.opacity=0; packetM.style.opacity=0;
         $('#runBtn').textContent='▶ Run a turn';
         running=false;
       }
